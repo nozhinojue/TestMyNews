@@ -4,12 +4,13 @@
     android:layout_height="50dp"
     android:background="@color/colorPrimary"
     android:orientation="horizontal"
-    android:padding="5dp"
+    android:padding="10dp"
     >
   　<ImageView
     android:id="@+id/iv_actionbar"
-    android:layout_width="32dp"
-    android:layout_height="32dp"
+    android:layout_marginLeft="5dp"
+    android:layout_width="25dp"
+    android:layout_height="25dp"
     android:src="@mipmap/menu_icon"
     android:layout_gravity="center"
     />
@@ -19,7 +20,7 @@
         android:layout_height="wrap_content"
         android:text="标题标题"
         android:textColor="@color/titleText_color"
-        android:textSize="24sp"
+        android:textSize="22sp"
         android:layout_gravity="center"
         android:gravity="center"
         />
