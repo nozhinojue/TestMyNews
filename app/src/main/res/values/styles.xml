@@ -1,0 +1,20 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+
+        <item name="windowActionBar">false</item>   <!-- 去掉actionbar -->
+        <item name="windowNoTitle">true</item>      <!-- 无标题 -->
+
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>         <!--actionBar的颜色-->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item> <!--状态栏(时间、信号栏)的颜色-->
+        <item name="colorAccent">@color/colorAccent</item>           <!--控件的颜色-->
+    </style>
+
+   <!--tablayout样式-->
+    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/colorPrimary</item>
+    </style>
+
+</resources>

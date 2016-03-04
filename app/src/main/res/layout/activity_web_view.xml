@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.cjj.myapplication.WebViewActivity"
+    android:orientation="vertical">
+    <include layout="@layout/custom_actionbar"></include>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <WebView
+            android:id="@+id/wv_webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </WebView>
+        <FrameLayout
+            android:id="@+id/fl_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#eeeeee"
+            >
+            <ProgressBar
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Base.Widget.AppCompat.ProgressBar"
+                />
+        </FrameLayout>
+    </RelativeLayout>
+
+</LinearLayout>
