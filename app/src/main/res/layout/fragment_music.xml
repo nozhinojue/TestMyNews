@@ -1,16 +1,108 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.cjj.mynews.fragment.MusicFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    tools:context="com.example.cjj.mynews.fragment.MusicFragment"
+    android:background="@color/back">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="音乐fg" />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/ll_title_musicFg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="song_name"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="22sp"
+                android:textColor="@color/white"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="songer_name"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="15sp"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+        <RelativeLayout
+            android:id="@+id/rl_icon_musicFg"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="10dp">
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/ic_launcher"/>
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/ll_seekbar_musicFg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="5dp">
+            <TextView
+                android:id="@+id/tv_start_musicFg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:textColor="@color/white"/>
+            <SeekBar
+                android:id="@+id/sb_musicFg"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:maxHeight="5dp"
+                android:minHeight="5dp"
+                android:progressDrawable="@drawable/seekbar_style"/>
+            <TextView
+                android:id="@+id/tv_end_musicFg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+        <RelativeLayout
+            android:id="@+id/rl_controlBtn_musicFg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:padding="10dp">
+            <ImageView
+                android:id="@+id/iv_play_musicFg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:src="@mipmap/btn_playback_play"/>
+            <ImageView
+                android:id="@+id/iv_pre_musicFg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/iv_play_musicFg"
+                android:src="@mipmap/ic_skip_previous_white_36dp"/>
+            <ImageView
+                android:id="@+id/iv_next_musicFg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/iv_play_musicFg"
+                android:src="@mipmap/ic_skip_next_white_36dp"/>
+        </RelativeLayout>
+    </LinearLayout>
 
-</FrameLayout>
+</RelativeLayout>
