@@ -89,7 +89,33 @@ public class MyOkHttp {
         });
     }
 
+    /**
+     * 获取音乐数据
+     * @param type  不同的类型,1、2、3....
+     */
+    public void getMusicData(int type,final MyOkHttpCallBack myOkHttpCallBack){
+        //天天动听的APi
+        String Muisc_Recommend="http://api.dongting.com/" +
+                "favorite/song/plaza?from=android&api_version=1.0&agent=none&user_id=0&language=zh&random="+type;
+        Request request = new Request.Builder()
+                .url(Muisc_Recommend)
+                .build();
+        OkHttpUtil.getInstance().getJsonFromServer(request, new OkHttpUtil.MyCallBack() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                myOkHttpCallBack.Failure(call,e);
+            }
 
+            @Override
+            public void onResponse(String json) {
+                myOkHttpCallBack.Successed(json);
+            }
+        });
+    }
+
+
+
+    //接口
     public interface MyOkHttpCallBack{
         void Successed(String jsonResult);
         void Failure(Call call,IOException e);
