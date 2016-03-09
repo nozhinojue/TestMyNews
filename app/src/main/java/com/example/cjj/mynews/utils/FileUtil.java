@@ -2,7 +2,12 @@ package com.example.cjj.mynews.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.widget.Toast;
 
 import java.io.File;
@@ -63,13 +68,33 @@ public class FileUtil {
 
 
     /**
+     * 创建存储缓存的文件夹路径
+     *
+     * @return
+     */
+    private File createSavePath() {
+        String path;
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            path = Environment.getExternalStorageDirectory().getPath() + "/MynewsDownload/";
+        } else {
+            path = "/MynewsDownload/";
+        }
+        File file = new File(path);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        return file;
+    }
+
+
+    /**
      * 本地文件转移
      * ImageLoader的缓存文件 抽取出来下载图片
      * @param context
      * @param file
      * @param file1
      */
-    public static void saveFile(Context context,File file , File file1){
+    public static void saveFile(Context context,File file , final File file1){
 
         OutputStream output = null;
         InputStream inputStream = null;
@@ -110,7 +135,7 @@ public class FileUtil {
                 }
             }
 
-            //通知系统相册  更新
+            //通知系统相册,更新显示
             Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
             Uri uri = Uri.fromFile(file1);
             intent.setData(uri);

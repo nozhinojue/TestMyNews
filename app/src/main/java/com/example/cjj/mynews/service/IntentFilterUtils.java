@@ -17,6 +17,7 @@ public class IntentFilterUtils {
     public static final String Position="position";
 
     public static final String Progress="Progress";
+    public static final String Progress_Change="Progress_Change";
     public static final String Progress_Update="Progress_Update";
 
     //一首歌的持续时间.

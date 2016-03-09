@@ -1,5 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_bg_musicFg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.cjj.mynews.fragment.MusicFragment"
@@ -43,13 +45,16 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:padding="10dp">
-            <ImageView
+            <com.example.cjj.mynews.customview.AroundCircleView
                 android:id="@+id/iv_icon_musicFg"
                 android:layout_width="250dp"
                 android:layout_height="250dp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerInParent="true"
-                android:src="@mipmap/ic_launcher"/>
+                android:scaleType="centerCrop"
+                app:textBgColor="@color/colorAccent"
+                android:src="@mipmap/ic_launcher"
+                />
         </RelativeLayout>
         <LinearLayout
             android:id="@+id/ll_seekbar_musicFg"

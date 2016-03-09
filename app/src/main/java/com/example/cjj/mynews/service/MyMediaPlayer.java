@@ -43,6 +43,7 @@ public class MyMediaPlayer implements MediaPlayer.OnPreparedListener {
         intentFilter.addAction(IntentFilterUtils.Music_Next);
         intentFilter.addAction(IntentFilterUtils.Music_Pause);
         intentFilter.addAction(IntentFilterUtils.Music_Previous);
+        intentFilter.addAction(IntentFilterUtils.Progress_Change);
         localBroadcastManager.registerReceiver(new MediaBroadReciver(), intentFilter);
 
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -135,6 +136,11 @@ public class MyMediaPlayer implements MediaPlayer.OnPreparedListener {
         preparePlay();
     }
 
+    //快进快退到。
+    private void seekTo(int seekValue) {
+        mediaPlayer.seekTo(seekValue);
+    }
+
     // mediaPlayer缓冲好后调用。
     @Override
     public void onPrepared(MediaPlayer mp) {
@@ -178,9 +184,16 @@ public class MyMediaPlayer implements MediaPlayer.OnPreparedListener {
                     //接受到了下一首按钮广播。
                     next();
                     break;
+                case IntentFilterUtils.Progress_Change:
+                    //接收到了进度改变广播。
+                    int seekValue= intent.getIntExtra("seekvalue",0);
+                    seekTo(seekValue);
+                    break;
             }
         }
     }
+
+
 
     //开启一个线程，发送进度条更新广播.
     private void sendProcessUpdate(){

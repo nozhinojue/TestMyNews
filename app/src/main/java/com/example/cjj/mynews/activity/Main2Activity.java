@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -36,10 +37,10 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_main2);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.dl_main2A);
-        dlMenu= (LinearLayout) findViewById(R.id.dl_menu_main2A);          //侧滑菜单
+        dlMenu= (LinearLayout) findViewById(R.id.dl_menu_main2A);  //侧滑菜单
         ImageView ivActionbar= (ImageView) findViewById(R.id.iv_actionbar);//actionbar图标
         ivActionbar.setOnClickListener(this);
-        tvActionbar= (TextView) findViewById(R.id.tv_actionbar);//actionbar文字
+        tvActionbar= (TextView) findViewById(R.id.tv_actionbar);  //actionbar文字
 
         Button btnNews= (Button) findViewById(R.id.bt_news_main2A);
         btnNews.setOnClickListener(this);
@@ -115,5 +116,15 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 mDrawerLayout.closeDrawer(dlMenu);
                 break;
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode==KeyEvent.KEYCODE_BACK){
+            //按返回键，不退出程序，而是最小化。
+            moveTaskToBack(false);
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

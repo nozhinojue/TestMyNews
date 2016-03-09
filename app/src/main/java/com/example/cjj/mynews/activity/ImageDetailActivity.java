@@ -86,30 +86,16 @@ public class ImageDetailActivity extends Activity implements View.OnClickListene
             case R.id.bt_download:
 
                 File file = ImageLoader.getInstance().getDiskCache().get(imgUrl);
-                File file1 = new File(createSavePath(), imgName + ".jpg");
-                FileUtil.saveFile(this, file, file1);
-
+                File storageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+                        ,imgName + ".jpg");
+                FileUtil.saveFile(this, file, storageDir);
                 //Toast.makeText(ImageDetailActivity.this, "下载完成", Toast.LENGTH_LONG).show();
                 break;
         }
     }
 
-    /**
-     * 创建存储缓存的文件夹路径
-     *
-     * @return
-     */
-    private File createSavePath() {
-        String path;
-        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-            path = Environment.getExternalStorageDirectory().getPath() + "/MynewsDownload/";
-        } else {
-            path = "/MynewsDownload/";
-        }
-        File file = new File(path);
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        return file;
-    }
+
+
+
+
 }
