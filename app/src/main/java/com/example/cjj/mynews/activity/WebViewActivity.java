@@ -30,7 +30,7 @@ public class WebViewActivity extends Activity {
         urlStr=getIntent().getStringExtra("URL");   //获取启动当前intent中的URL值。
 
         ImageView ivActionbar= (ImageView) findViewById(R.id.iv_actionbar);
-        ivActionbar.setImageResource(R.mipmap.back_icon);
+        ivActionbar.setImageResource(R.mipmap.back_icon2);
         ivActionbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

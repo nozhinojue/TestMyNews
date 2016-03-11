@@ -4,13 +4,12 @@
     android:layout_height="50dp"
     android:background="@color/colorPrimary"
     android:orientation="horizontal"
-    android:padding="10dp"
     >
   　<ImageView
     android:id="@+id/iv_actionbar"
     android:layout_marginLeft="5dp"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
+    android:layout_width="48dp"
+    android:layout_height="48dp"
     android:padding="5dp"
     android:src="@mipmap/menu_icon"
     android:background="@drawable/btn_bg_selector"
